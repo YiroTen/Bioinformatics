@@ -1,0 +1,53 @@
+# Función para contar la ocurrencia de una secuencia en un archivo de texto ver funcion para secuencia corta
+
+def contar_secuencia_en_texto(texto, secuencia):
+    contador = 0
+    index = 0
+    while index < len(texto):
+
+        # Buscar la próxima ocurrencia de la secuencia
+
+        index = texto.find(secuencia, index)
+        if index == -1:
+            break
+        else:
+
+            # Si se encontró la secuencia, incrementar el contador y continuar buscando desde el próximo carácter
+
+            contador += 1
+            index += 1
+
+    return contador
+
+# Nombre del archivo de texto poner ruta completa al archivo
+
+nombre_archivo = 'C:/Users/tron4/Downloads/Bioinformatics/dataset_30272_6.txt'
+
+# Secuencia que deseas buscar, cambiala por la secuencia que quieras
+
+secuencia = "GTATGAAGT"
+
+
+try:
+
+    # Abrir el archivo y leer su contenido
+
+    with open(nombre_archivo, 'r') as file:
+
+        texto = file.read()
+
+   
+    # Llamar a la función para contar la secuencia
+
+    resultado = contar_secuencia_en_texto(texto, secuencia)
+
+    # Mostrar el resultado {resultado-1} es porque la secuencia que se desea buscar está repetida al final 
+    # asi lo proporcionan en el sitio pero si la secuencia que deseas buscar no se repite al final borra el -1
+
+    print(f'La secuencia "{secuencia}" se repite {resultado-1}  veces en el archivo "{nombre_archivo}".')
+
+except FileNotFoundError:
+
+    print(f'El archivo "{nombre_archivo}" no se encontró.')
+
+
