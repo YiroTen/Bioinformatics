@@ -1,1 +1,21 @@
 sed -i '15117,20935s/\(.\{21\}\)A/\1B/' archivo.txt
+
+# sed: Llama a la herramienta sed.
+# -i: Realiza la edición "in-place", lo que significa que modifica el archivo original en lugar de generar un nuevo archivo.
+# '15117,20935s/\(.\{21\}\)A/\1B/': Esta es la expresión regular que realiza el reemplazo. Aquí se explican sus componentes:
+# 15117,20935: Indica el rango de líneas a las que se aplicará el reemplazo.
+# s: Indica que se debe realizar una sustitución.
+# \(.\{21\}\)A: Captura los primeros 21 caracteres (columnas 1 a 21) en un grupo de captura y busca la letra 'A' después de esos 21 caracteres.
+# /\1B/: Reemplaza la letra 'A' por 'B' mientras se conserva el contenido capturado en el grupo de captura (las primeras 21 columnas).
+
+sed '15117,20935s/\(.\{21\}\)A/\1B/' archivo.txt > archivo_modificado.txt
+
+# En este comando, hemos eliminado la opción -i, que realiza la edición "in-place", 
+# y en su lugar hemos redirigido la salida hacia un nuevo archivo llamado "archivo_modificado.txt".
+# El comando sed realizará las sustituciones según el rango de líneas especificado y guardará el resultado
+# en el nuevo archivo "archivo_modificado.txt". Puedes cambiar el nombre del archivo de salida según tus preferencias.
+
+
+
+
+
